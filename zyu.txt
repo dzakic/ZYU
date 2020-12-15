@@ -1,0 +1,132 @@
+ZKEY
+
+Zkey je drajver za tastaturu koji omogu†ava da se svakom tasteru
+dodeli §eljeni znak koji †e se dobiti njegovim pritiskom bilo sa
+ili bez Shift, Ctrl ili Alt. Zkey je istovremeno i editor kojim
+se definiçe rad drajvera. Mogu†e je definisati do 10 razliŸitih
+rasporeda tastature i u toku rada jednostavno menjati re§im
+pritiskom na Ctrl-Alt-F1 za prvi raspored, do F10 za deseti
+(ukoliko ih ima toliko). Jedna od specifiŸnosti Zkey-a je ta çto
+sve definicije koje se odnose na tastere Ctr i Alt, odnose se na
+desn i Ctrl i desni Alt, dok funkcija levog Ctrl i levog Alta
+ostaje nepromenjena.
+
+EDITING
+
+Rasporedi se Ÿuvaju u posebnoj tekstualnoj datoteci sa
+ekstenzijom .kbd koju je najlakçe kreirati startovanjem Zkey-a
+sa parametrom E (od edit). Dakle:
+
+Zkey e my.kbd
+
+Pojavi†e se editor sa nacrtanom kompletnom tastaturom, dok je
+iznad funkcijskog tastera F1 nacrtana strelica uperena na dole.
+Ona oznaŸava koju od 10 tastatura definiçemo. PraktiŸno je
+tastaturu na F1 ostaviti "praznu", da bismo tokom rada imali
+dostupnu Ÿistu ameriŸku ascii tastaturu, a poŸev od F2 pa dokle
+nam je potrebno definisati proizvoljan raspored (za †irilicu,
+latinicu, itd.). Dakle, pritiskom na Ctrl-F2 prelazimo na
+podeçavanje druge tastature. Tastaturu definiçemo na slede†i
+naŸin. Pritisnite taster koji §elite da definiçete (recimo ';').
+Na ekranu †e se pojaviti çest polja sa svim kombinacijama Shift,
+Ctrl i Alt tastera koje Zkey podr§ava. Kroz polja se mo§ete
+kretati kursorskim strelicama, i u svako polje uneti potreban
+znak - onaj koji je potrebno dobiti pritiskom na izabrani taster
+uz kombinaciju pomo†nih tastera prema §elji. Kada je polje
+prazno, znaŸi da Zkey ne†e vrçiti nikakvu intervenciju u tom
+sluŸaju, te †e se dobiti znak koji se inaŸe i dobija bez
+drajvera. Treba dakle definisati samo situacije specifiŸne za
+Vaçe potrebe. Znak se u polje unosi tako çto se jednostavno
+pritisne (otkuca na tastaturi) §eljeni znak. U naçem sluŸaju
+potrebno nam je slovo Ÿ po 'Yuscii' rasporedu, pa ga tako mo§emo
+i uneti (tilda). Drugi naŸin je da, ukoliko znamo ascii kod
+znaka, pritisnemo Alt i na numeriŸkoj tastaturi otkucamo njegovu
+decimalnu vrednost. Tre†i naŸin je najjednostavniji, ali i
+jedini mogu† kada ne z namo ascii kod znaka, niti ga imamo na
+tasta turi. Pritisnemo razmaknicu (space), potra§imo §eljeni
+znak u tabeli i odaberemo ga pritiskom na Enter. Ukoliko smo
+znak greçkom izabrali, polje lako 'oŸistimo' pritiskom na taster
+Delete. Polje iza Caps mo§emo odçtiklirati pritiskom na Space
+ukoliko §elimo da taster bude osetljiv na stanje Caps Lock-a u
+sva tri sluŸaja - normalno, sa Ctrl i sa Alt. Podeçavanja za
+izabrani taster (';') zavrçavamo pritiskom na Esc, a iz Ÿitavog
+programa pritiskom na F10. Ovime je nastala kbd datoteka.
+
+Dakle, va§e tasteri:
+
+Ctrl+Fn    Menja tastaturu koju definiçemo u onu pod rednim brojem
+           n (pomera strelicu iznad funkcijskog tastera)
+
+Ctrl+Home  Briçe kompletnu definiciju aktivne tastature
+
+Delete     Briçe definiciju tastera za datu kombinaciju Shiftova
+
+Space      Daje panel za izbor definicije tastera
+
+PgUp/PgDn  Menja izabranu definiciju za +/- 1
+
+Esc        Izlaz iz programa (pita da li da snimi)
+
+F10        Snima konfiguraciju i izlazi iz programa
+
+Nakon definisanja kbd datoteke, mo§ete je pogledati iz nekog editora, pa i izvrçiti neke izmene.
+
+INSTALLING
+
+Drajver se instalira startovanjem Zkey-a sa parametrom I (od
+install). Dakle:
+
+Zkey i test.kbd
+
+Datoteka test.kbd tra§i se prvo u teku†em direktorijumu. Ako je tu
+nema, bice uŸitana test.kbd iz direktorijuma u kome se nalazi
+zkey.exe (recimo c:\util). Naravno, direktorijum se mo§e
+specificirati zajedno sa imenom datoteke. Ako se ne zada
+ekstenzija datoteke, podrazumeva†e se "kbd". Dakle, mogu†a je i
+komanda "zkey i test".
+
+UNINSTALLING
+
+Ako vam u toku rada iz bilo kog razloga bude potrebno da drajver
+deaktivirate i izbacite iz memorije, to †ete uraditi
+startovanjem Zkey-a sa parametrom U (od uninstall). Dakle: Zkey
+u
+
+OPTIONS
+
+Prilikom instaliranja mogu se koristiti opcije /hi i /lo koje
+odreÐuju da li †e se program uŸitati u tzv. gornju ili u donju
+memoriju. Bez navoÐenja opcije, Zkey automatski tra§i postojanje
+gornje memorije, i, ukoliko je ima i u njoj ima dovoljno mesta,
+program se instalira 'gore', a u suprotnom dole. NavoÐenjem
+jedne od ove dve opcije, mo§e se zahtevati strogo instaliranje u
+gornju, odnosno donju memoriju respektivno. Ukoliko instalacija
+ne uspe na naŸin kako je zahtevano, bi†e prijavljena greçka.
+Pored ove dve opcije koje se mogu koristiti iskljuŸivo prilikom
+instalacije, postoji i niz drugih koje se mogu pozivati i
+kasnije, tokom rada sa Zkey-em radi podeçavanja nekih parametera
+rada, çto mo§e biti korisno za intervenciju u Batch fajlovima.
+
+/table:n       Postavlja aktivnu tabelu (tastaturu) na onu pod
+               rednim brojem n. Ovo je ekvivalentno pritisku na
+               hotkey+Fn.
+
+/left          Postavlja drajver u takvo stanje da definicije
+               tastera koje su se odnosile na Ctrl+taster i
+               Alt+taster viçe se na odnose na desni, ve† na levi
+               Ctrl i levi Alt. Dakle, raspored za levoruke.
+
+/right         Vra†a drajver u normalno stanje za deçnjake.
+
+/off           Deaktivira drajver. Nekada je korisno iskljuŸiti ga
+               na momenat, kao da nije ni instaliran. Kasnije ga
+               ponovo aktiviramo opcijom /on. Ovo je sigurniji naŸin
+               od uninstaliranja i ponovnog instaliranja.
+
+/on            Aktivira drajver.
+
+/hotkey:lrca   Definiçe hotkey za prelazak sa tastature na
+               tastaturu. ZnaŸenje ovih slova su: Left Shift,
+               Right Shift, Ctrl i Alt. Po default-u su za
+               hotkey uzeti Ctrl i Alt (ca), ovo se dakle mo§e
+               promeniti.
